@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: @package.environment@
+  main:
+    banner-mode: "off"
+
+logging:
+  level:
+    root: DEBUG
+    org.apache.tomcat: WARN
+    org.apache.apache: WARN
+    sun.rmi: WARN
+    org.springframework.core.env.PropertySourcesPropertyResolver: WARN
+    ma.glasnost.orika: WARN
+    ch.qos.logback: WARN
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+
+---
+spring:
+  profiles: test
