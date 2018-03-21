@@ -1,0 +1,122 @@
+package com.pagoda.bgkj.domain;
+
+import com.pagoda.platform.jms.annotation.*;
+import com.pagoda.platform.jms.hibernate.SnowflakeGenerator;
+import com.pagoda.platform.jms.jpa.*;
+import com.pagoda.bgkj.api.dto.*;
+
+import lombok.Data;
+import ma.glasnost.orika.*;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
+import org.hibernate.annotations.*;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * 部门实体定义
+ * 
+ * @author PagodaGenerator
+ * @generated
+ */
+@Data
+@Entity
+@DynamicUpdate
+@DynamicInsert
+@Table(name = "Department")
+@SQLDelete(sql = "update Department set deleted = true where id = ?")
+@Where(clause = "deleted = false")
+@EntityFeature(entityName="Department", persistent=true, batchImport=true, treeStyle=true, auditable=false, traceable=false, approvalRequired=true, requestUrl="xxx", tableMultiSelect=true)
+public class Department extends DepartmentDTO implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @FieldMeta(name="id", nameCN="主键id", type="long")
+    private Long id;
+
+    @FieldMeta(name="deleted", nameCN="软删除标记", type="boolean")
+    @Column(name="deleted", insertable=false, columnDefinition="boolean default 0")
+    private Boolean deleted = false;
+
+    @FieldMeta(name="enabled", nameCN="是否启用", type="boolean")
+    @Column(name="enabled", insertable=false, columnDefinition="boolean default 1")
+    private Boolean enabled = true;
+
+    @FieldMeta(name="parentId", nameCN="父节点id", type="long")
+    @Column(name="parentId")
+    private Long parentId;
+
+
+
+    @FieldMeta(name="approvalStatus", nameCN="审核状态", type="integer")
+    @Column(name="approvalStatus")
+    private Integer approvalStatus;
+
+    @FieldMeta(name="approvalAt", nameCN="审核时间", type="datetime")
+    @Column(name = "approvalAt")
+    private Date approvalAt;
+
+    @FieldMeta(name="approver", nameCN="审核人", type="string")
+    @Column(name = "approver")
+    private String approver;
+
+    
+    @FieldMeta(name="depType", scene="bgkj", nameCN="部门类型", nameEN="department type", type="整型", format="$", displayLen=20, formSize="", constraint="", constraintParams="",
+        persistent=true, canQuery=true, readOnly=false, required=true, visible=true, defaultValue="", tag="", sortable=false, enumerationType=false, constraintParamsExtra="", fixed="")
+    @Column(name = "depType" )
+    private Integer depType;
+    
+    @FieldMeta(name="depName", scene="bgkj", nameCN="部门名称", nameEN="department name", type="枚举", format="%", displayLen=1, formSize="", constraint="add_dc", constraintParams="{"a": 1}",
+        persistent=true, canQuery=true, readOnly=false, required=true, visible=true, defaultValue="", tag="", sortable=false, enumerationType=false, constraintParamsExtra="", fixed="")
+    @Column(name = "depName" )
+    private String depName;
+
+    public Department() {
+    }
+
+    static MapperFacade mapper ;
+
+    static {
+        MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
+        mapperFactory.classMap(Department.class, DepartmentDTO.class)
+                .mapNulls(false).mapNullsInReverse(false)
+                .byDefault()
+                .register();
+        mapper = mapperFactory.getMapperFacade();
+    }
+
+    public static Department convertDTO(DepartmentDTO dto) {
+        return mapper.map(dto, Department.class);
+    }
+
+    public static Iterable<Department> batchConvertDTO(Iterable<DepartmentDTO> dtos) {
+        List<Department> entities = new ArrayList<>();
+        dtos.forEach(d -> entities.add(convertDTO(d)));
+        return entities;
+    }
+ 
+    public static Iterable<DepartmentDTO> batchConvert(Iterable<Department> entities) {
+        List<DepartmentDTO> dtos = new ArrayList<>();
+        entities.forEach(e -> dtos.add(e));
+        return dtos;
+    }
+
+    public static Converter<Department, DepartmentDTO> DTO_CONVERTER = new Converter<Department, DepartmentDTO>() {
+
+        @Override
+        public DepartmentDTO convert(Department source) {
+            return source;
+        }
+    };
+            
+}
