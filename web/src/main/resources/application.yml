@@ -1,0 +1,54 @@
+spring:
+  profiles:
+    active: @package.environment@
+  main:
+    banner-mode: "off"
+
+# 服务部署地址
+server:
+  baseUrl: http://localhost:8080
+
+# 本地调试可以设置成false，禁用dubbo
+dubbo:
+  enabled: true
+
+# 单点登录
+cas:
+  enable: false
+  cert-check-enable: false
+  server-host: https://cas.pagoda.com.cn/cas
+  server-login: ${cas.server-host}/login
+  server-logout: ${cas.server-host}/logout
+  client-host: http://localhost/trade
+  client-login: /login
+  client-logout: /logout
+  filterchain:
+    authc[0]: /user    
+    anon[0]: /testPost
+    api[0]: /hello    
+
+# HttpClient连接池配置
+httpClient:
+# 关闭空闲连接, 单位分钟
+  maxIdleTime: 10
+# 最大连接数
+  maxTotal: 2000
+#  单个host最大连接
+  maxPerRoute: 2000
+#  连接超时, 单位毫秒
+  timeout: 10000
+  
+logging:
+  level:
+    root: DEBUG
+    org.apache.tomcat: WARN
+    org.apache.apache: WARN
+    sun.rmi: WARN
+    org.springframework.core.env.PropertySourcesPropertyResolver: WARN
+    ma.glasnost.orika: WARN
+    ch.qos.logback: WARN
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+---
+spring:
+  profiles: test
