@@ -1,0 +1,2 @@
+org.springframework.context.ApplicationContextInitializer=com.pagoda.bgkj.CustomInitializer
+org.springframework.context.ApplicationListener=com.pagoda.bgkj.CustomInitializer
