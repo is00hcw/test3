@@ -17,11 +17,11 @@
         <relativePath/>
     </parent>
     <modules>
-        <module>dao</module>
-        <module>api</module>
-        <module>dubbo-container</module>
-        <module>service</module>
-        <module>web</module>
+        <module>bgkj-dao</module>
+        <module>bgkj-api</module>
+        <module>bgkj-dubbo-container</module>
+        <module>bgkj-service</module>
+        <module>bgkj-web</module>
     </modules>
 
 </project>
