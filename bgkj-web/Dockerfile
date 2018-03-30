@@ -34,5 +34,5 @@ EXPOSE 8080
 #-XX:GCLogFileSize=10M"
 
 # JAVA_OPTS="-Dspring.profiles.active=dev"
-ENTRYPOINT ["java","${JAVA_OPTS}", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
