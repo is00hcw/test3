@@ -6,7 +6,7 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 VOLUME /tmp
 
-ADD target/bgkj-web-1.0.0.jar app.jar
+ADD target/bgkj-web.jar app.jar
 RUN bash -c 'touch /app.jar'
 
 EXPOSE 8080
