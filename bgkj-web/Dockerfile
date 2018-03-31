@@ -33,6 +33,7 @@ EXPOSE 8080
 #-XX:NumberOfGCLogFiles=5 \
 #-XX:GCLogFileSize=10M"
 
+RUN mkdir -p /opt/settings/
 RUN echo "env=DEV" > /opt/settings/server.properties
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
