@@ -6,7 +6,7 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 VOLUME /tmp
 
-ADD target/bgkj-web.jar app.jar
+ADD target/bgkj-web-1.0.0.jar app.jar
 RUN bash -c 'touch /app.jar'
 
 EXPOSE 8080
@@ -33,6 +33,6 @@ EXPOSE 8080
 #-XX:NumberOfGCLogFiles=5 \
 #-XX:GCLogFileSize=10M"
 
-# JAVA_OPTS="-Dspring.profiles.active=dev"
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ENV JAVA_OPTS="-Dspring.profiles.active=dev"
+ENTRYPOINT ["java","${JAVA_OPTS}", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
