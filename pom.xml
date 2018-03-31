@@ -22,6 +22,8 @@
         <module>bgkj-dubbo-container</module>
         <module>bgkj-service</module>
         <module>bgkj-web</module>
+
+
     </modules>
 
 </project>
