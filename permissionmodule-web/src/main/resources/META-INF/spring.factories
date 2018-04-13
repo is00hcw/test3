@@ -1,0 +1,2 @@
+org.springframework.context.ApplicationContextInitializer=com.project.test.CustomApplicationContextInitializer
+org.springframework.context.ApplicationListener=com.project.test.CustomApplicationContextInitializer

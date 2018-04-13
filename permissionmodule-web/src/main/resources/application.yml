@@ -1,0 +1,180 @@
+spring:
+  profiles:
+    active: @package.environment@
+  main:
+    banner-mode: "off"
+    
+# 上传文件配置 http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#common-application-properties search multipart
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  # Embedded ActiveMQ Configuration Example
+  activemq:
+    enabled: true
+    broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
+#    broker-url: tcp://erp2.test.pagoda.com.cn:8161
+#    user: admin
+#    password: admin
+    in-memory: true
+    non-blocking-redelivery: true
+    packages:
+      trust-all: true
+#      trusted: com.memorynotfound
+    pool:
+      block-if-full: true
+      block-if-full-timeout: -1
+      create-connection-on-startup: true
+      enabled: false
+      expiry-timeout: 0
+      idle-timeout: 30000
+      max-connections: 1
+      maximum-active-session-per-connection: 500
+      reconnect-on-exception: true
+      time-between-expiration-check: -1
+      use-anonymous-producers: true
+
+  # Spring JMS Settings
+  jms:
+    listener:
+      acknowledge-mode: auto
+      auto-startup: true
+      concurrency: 2
+      max-concurrency: 2
+    pub-sub-domain: true
+    template:
+      default-destination:
+      delivery-mode: non_persistent
+      priority: 100
+      qos-enabled: true
+      receive-timeout: 1000
+      time-to-live: 36000
+
+    
+
+# 上传文件保存目录
+uploadFolder: /tmp/upload/
+
+# 服务部署地址
+server:
+  baseUrl: http://localhost:8080
+
+# 是否启用dubbo，本地调试可以设置成false禁用dubbo
+dubbo:
+  enabled: true
+
+
+# 编码字段由规则自动生成，采用spel表达式可以在配置文件中指定，或者在模型中使用注解@GeneratedCode
+#codeRule:
+#  模型名称:
+#     generatedFields: 编码字段1，编码字段2
+#     编码字段1: 'SZ'+ #dateFormat('yyyy') + #subStr(#obj.value,3,'x') + #redisSeq('goods') + T(Math).random() + @springBean.callMethod()
+
+# 模型字段验证，采用spel表达式可以在配置文件中指定，或者在模型中使用注解@ValidateClassExpression
+#validator:
+#  模型名称:
+#     ruleNames:  规则名1，规则名2
+#     规则名1: !#this.cars.isEmpty()
+#     规则名1-error: 错误信息
+
+
+# 权限系统注册的app名字
+applicationCode: erp
+
+# apollo配置中心，env指定查找参数的环境
+apollo:
+  env: DEV
+  server: 139.159.247.139
+
+
+# 定时任务  https://github.com/xuxueli/xxl-job
+xxl:
+  job:
+    enabled: true
+    executor:
+      logpath: /data/applogs/xxl-job/jobhandler
+      appname: xxl-job-executor-permissionmodule
+      ip: localhost
+      port: 9999
+      logretentiondays: -1
+    admin:
+      addresses: http://erp2.test.pagoda.com.cn:7000/xxl-job-admin-1.9.1 
+    accessToken: 
+
+
+
+# 单点登录
+cas:
+  enable: false
+  cert-check-enable: false
+# cas测试地址  账号011738
+  server-host: http://b2b.dev.pagoda.com.cn:20106/cas
+# cas正式地址
+# server-host: https://cas.pagoda.com.cn/cas
+  server-login: ${cas.server-host}/login
+  server-logout: ${cas.server-host}/logout
+  client-host: http://localhost/trade
+  client-login: /login
+  client-logout: /logout
+  filterchain:
+    authc[0]: /user    
+    anon[0]: /testPost
+    api[0]: /hello    
+
+# HttpClient连接池配置
+httpClient:
+# 关闭空闲连接, 单位分钟
+  maxIdleTime: 10
+# 最大连接数
+  maxTotal: 2000
+#  单个host最大连接
+  maxPerRoute: 2000
+#  连接超时, 单位毫秒
+  timeout: 10000
+
+
+# 请求日志拦截器org.springframework.web.filter.CommonsRequestLoggingFilter配置
+requestLogging:
+# 日志是否包含url查询参数
+  includeQueryString: true
+# 日志是否包含client address和session id
+  includeClientInfo: true
+# 日志是否包含http请求header
+  includeHeaders: true
+# 日志是否包含http请求body
+  includePayload: true
+# 日志打印http请求body的最大长度
+  maxPayloadLength: 10000
+
+
+# spring actuator配置
+endpoints:
+  metrics:
+    sensitive: false
+    enabled: true
+  health:
+    sensitive: false
+    enabled: true
+management:
+  security:
+    enabled: false
+  health:
+    redis:
+      enabled: false
+
+
+logging:
+  level:
+    root: DEBUG
+    org.apache.tomcat: WARN
+    org.apache.apache: WARN
+    sun.rmi: WARN
+    org.springframework.core.env.PropertySourcesPropertyResolver: WARN
+    ma.glasnost.orika: WARN
+    ch.qos.logback: WARN
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+---
+spring:
+  profiles: test
