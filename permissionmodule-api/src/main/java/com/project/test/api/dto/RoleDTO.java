@@ -48,7 +48,8 @@ public class RoleDTO implements Serializable {
     nameCN = "软删除标记",
     type = "boolean",
     visible = false,
-    canQuery = false
+    canQuery = false,
+    readOnly = true
   )
   @ApiModelProperty(name = "deleted", value = "软删除标记", dataType = "boolean", notes = "")
   private Boolean deleted;
@@ -134,7 +135,14 @@ public class RoleDTO implements Serializable {
   @ApiModelProperty(name = "version", value = "版本号", dataType = "", notes = "")
   private Integer version;
 
-  @FieldMeta(name = "active", nameCN = "是否当前版本", type = "boolean", visible = true, canQuery = false)
+  @FieldMeta(
+    name = "active",
+    nameCN = "是否当前版本",
+    type = "boolean",
+    visible = true,
+    canQuery = false,
+    readOnly = true
+  )
   @ApiModelProperty(name = "active", value = "是否当前版本", dataType = "boolean", notes = "")
   private Boolean active;
 

@@ -74,7 +74,8 @@ public class Permission extends PermissionDTO implements Serializable {
     nameCN = "软删除标记",
     type = "boolean",
     visible = false,
-    canQuery = false
+    canQuery = false,
+    readOnly = true
   )
   @Column(
     name = "deleted",
@@ -173,7 +174,14 @@ public class Permission extends PermissionDTO implements Serializable {
   @Version
   private Integer version;
 
-  @FieldMeta(name = "active", nameCN = "是否当前版本", type = "boolean", visible = true, canQuery = false)
+  @FieldMeta(
+    name = "active",
+    nameCN = "是否当前版本",
+    type = "boolean",
+    visible = true,
+    canQuery = false,
+    readOnly = true
+  )
   @Column(
     name = "active",
     insertable = false,
@@ -186,7 +194,8 @@ public class Permission extends PermissionDTO implements Serializable {
     nameCN = "审核状态",
     type = "integer",
     visible = true,
-    canQuery = false
+    canQuery = false,
+    readOnly = true
   )
   @Column(name = "approvalStatus", columnDefinition = "int(11) COMMENT '审核状态'")
   private Integer approvalStatus;
@@ -196,12 +205,20 @@ public class Permission extends PermissionDTO implements Serializable {
     nameCN = "审核时间",
     type = "datetime",
     visible = true,
-    canQuery = false
+    canQuery = false,
+    readOnly = true
   )
   @Column(name = "approvalAt", columnDefinition = "datetime COMMENT '审核时间'")
   private Date approvalAt;
 
-  @FieldMeta(name = "approver", nameCN = "审核人", type = "string", visible = true, canQuery = false)
+  @FieldMeta(
+    name = "approver",
+    nameCN = "审核人",
+    type = "string",
+    visible = true,
+    canQuery = false,
+    readOnly = true
+  )
   @Column(name = "approver", columnDefinition = "varchar(30) COMMENT '审核人'")
   private String approver;
 
