@@ -49,7 +49,8 @@ public class FindSomethingByRoleDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "",
-    sensitive = false
+    sensitive = false,
+    index = -1
   )
   @ApiModelProperty(
     name = "name2",
@@ -84,7 +85,8 @@ public class FindSomethingByRoleDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "",
-    sensitive = false
+    sensitive = false,
+    index = -1
   )
   @ApiModelProperty(
     name = "name1",

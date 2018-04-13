@@ -214,7 +214,8 @@ public class Role extends RoleDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "name", columnDefinition = "varchar(255) COMMENT '角色名称'")
   private String name;
@@ -244,7 +245,8 @@ public class Role extends RoleDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "permissions", columnDefinition = "varchar(255) COMMENT '角色所具有的权限'")
   private String permissions;

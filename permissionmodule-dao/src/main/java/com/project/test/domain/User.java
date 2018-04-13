@@ -247,7 +247,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "name", columnDefinition = "varchar(255) COMMENT '用户名称'")
   private String name;
@@ -277,7 +278,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "age", columnDefinition = "int(11) COMMENT '用户年龄'")
   private Integer age;
@@ -307,7 +309,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "weight", columnDefinition = "double COMMENT '用户体重'")
   private Double weight;
@@ -337,7 +340,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "sex", columnDefinition = "boolean COMMENT '用户性别'")
   private Boolean sex;
@@ -367,7 +371,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "registerTime", columnDefinition = "datetime COMMENT '用户注册时间'")
   private java.sql.Timestamp registerTime;
@@ -397,7 +402,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "registerDate", columnDefinition = "date COMMENT '用户注册日期'")
   @Temporal(TemporalType.DATE)
@@ -428,7 +434,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "height", columnDefinition = "decimal COMMENT '用户身高'")
   private java.math.BigDecimal height;
@@ -458,7 +465,8 @@ public class User extends UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "roleName", columnDefinition = "varchar(255) COMMENT '用户角色'")
   private String roleName;

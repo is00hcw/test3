@@ -247,7 +247,8 @@ public class Permission extends PermissionDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "name", columnDefinition = "varchar(255) COMMENT '权限名称'")
   private String name;
@@ -277,7 +278,8 @@ public class Permission extends PermissionDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @Column(name = "function", columnDefinition = "varchar(255) COMMENT '权限功能'")
   private String function;

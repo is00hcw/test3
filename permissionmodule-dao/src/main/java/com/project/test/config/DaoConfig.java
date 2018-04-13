@@ -1,6 +1,7 @@
 package com.project.test.config;
 
 import com.pagoda.platform.jms.jpa.*;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.*;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.*;
@@ -23,11 +24,12 @@ import org.springframework.data.domain.AuditorAware;
 public class DaoConfig {
 
   /**
-   * 审计时获取操作的用户身份
+   * 审计时获取操作的用户身份,此处返回假数据，应该有由dubbo服务从上下文中获取
    *
    * @return
    */
   @Bean
+  @ConditionalOnMissingBean
   AuditorAware<String> auditorProvider() {
     return new AuditorAware() {
       @Override

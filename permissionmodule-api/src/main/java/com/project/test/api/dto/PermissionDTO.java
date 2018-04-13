@@ -204,7 +204,8 @@ public class PermissionDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "name",
@@ -239,7 +240,8 @@ public class PermissionDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "function",

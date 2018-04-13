@@ -30,6 +30,11 @@ import javax.sql.DataSource;
 )
 public class DubboConfiguration {
 
+  /**
+   * dubbo启用时，datasource没有使用
+   *
+   * @return
+   */
   @ConditionalOnMissingBean
   @Bean
   public DataSource dataSource() {

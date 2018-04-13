@@ -204,7 +204,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "name",
@@ -239,7 +240,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(name = "age", value = "年龄", dataType = "整型", notes = "5ab895297c51e0fcf5176d2d")
   private Integer age;
@@ -269,7 +271,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "weight",
@@ -304,7 +307,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(name = "sex", value = "性别", dataType = "布尔", notes = "5ab895e47c51e0fcf5176e3a")
   private Boolean sex;
@@ -334,7 +338,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "right",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "registerTime",
@@ -369,7 +374,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "registerDate",
@@ -404,7 +410,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "height",
@@ -439,7 +446,8 @@ public class UserDTO implements Serializable {
     enumerationType = false,
     constraintParamsExtra = "",
     fixed = "left",
-    sensitive = false
+    sensitive = false,
+    index = 0
   )
   @ApiModelProperty(
     name = "roleName",
